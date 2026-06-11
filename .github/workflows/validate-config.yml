@@ -1,0 +1,31 @@
+name: Validate Configuration
+
+on: [pull_request, push]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate package.json
+        run: |
+          if ! jq empty package.json 2>/dev/null; then
+            echo "❌ Invalid package.json JSON"
+            exit 1
+          fi
+          if ! jq -e '.license' package.json > /dev/null; then
+            echo "❌ Missing license field in package.json"
+            exit 1
+          fi
+          echo "✅ Configuration is valid"
+      - name: Validate LICENSE file
+        run: |
+          if [ ! -f LICENSE ]; then
+            echo "❌ LICENSE file not found"
+            exit 1
+          fi
+          if ! grep -q "MIT" LICENSE; then
+            echo "❌ LICENSE is not MIT"
+            exit 1
+          fi
+          echo "✅ LICENSE is valid"
