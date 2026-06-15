@@ -3,6 +3,41 @@
 
 # seneca-postgres-store
 
+## Install
+
+```sh
+npm install seneca
+npm install @seneca/postgres-store
+```
+
+## Quick Example
+
+```js
+const Seneca = require('seneca')
+var seneca = Seneca().use('postgres-store', { ... })
+```
+
+## More Examples
+
+See [test/](test/) for usage examples.
+
+## Motivation
+
+A Postgres data store plugin for the Seneca framework.
+
+## Support
+
+If you are having difficulty, open an issue on the GitHub repo.
+
+## API
+
+See [README](README.md) and Seneca docs for message patterns.
+
+## Background
+
+This plugin uses the [pg](https://node-postgres.com/) driver.
+
+
 [![npm version][npm-badge]][npm-url]
 [![Build Status][travis-badge]][travis-url]
 [![Dependency Status][david-badge]][david-url]
