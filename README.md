@@ -1,7 +1,7 @@
 ![Seneca](http://senecajs.org/files/assets/seneca-logo.png)
 > A [Seneca.js](http://senecajs.org) data storage plugin
 
-# seneca-postgres-store
+# @seneca/postgres-store
 
 ## Install
 
